@@ -17,6 +17,7 @@ def read_calendar():
         calendar: pandas dataframe containing calendar database
     """
     calendar = pd.read_csv(config.inputs_path['calendar'], sep = ',', engine = 'python')
+    calendar['date'] = pd.to_datetime(calendar.date)
     return calendar
 
 def read_sample_submission():
